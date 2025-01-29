@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block title %}Currículum de Genesis Ortiz{% endblock %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum-Vitae</title>
+</head>
+<body>
+
+        <h1 style="text-align: center;">Paola Edith Guerrero Hernández</h1>
+        <center>
+            <img src="{{ url_for('static', filename='images/Paola.jpg') }}" alt="Foto de perfil" class="Paola Guerrero">
+        <p>Edad: 40 años</p>
+        <p>Dirección: 32 y Camilo destruge</p>
+        <p>Ciudad: Guayaquil</p>
+        <p>Correo Electrónico: paolaguerrero1984@gmail.com</p>
+        <p>Teléfono: 0979111501</p>
+        </center>
+
+    <section>
+        <h2>Perfil Profesional</h2>
+        <p>Estudiante de la carrera Gestion de la Informacion Gerencial.</p>
+    </section>
+
+    <section>
+        <h2>Experiencia Laboral</h2>
+        <ul>
+            <li>
+                <h3>Hospital del niño Dr. Francisco Icaza Bustamante</h3>
+                <p>Cargo: Asistente Contable</p>
+                <p>Tiempo que trabajo: Actualmente.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Educación</h2>
+        <ul>
+            <li>
+                <h3>Escuela Instituto Stabile</h3>
+                <p>Título: Educación Basica</p>
+            <li><h3>Colegio Eugenio Espejo</h3>
+                <p>Título: Bachiller en Ciencias Administrativas</p>  
+            <li> <h3>Universidad de Guayaquil</h3>
+                <p>Título: Gestion de la Informacion Gerencial</p>
+                <p>Fecha de finalización: En proceso(4to semestre)</p>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Habilidades</h2>
+        <ul>
+            <li>Atencion al cliente</li>
+            <li>Estadística (Procedimiento de datos)</li>
+            <li>Servicio en Ventas</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Idiomas</h2>
+        <ul>
+            <li>Español: Nativo</li>
+            <li>Inglés: Intermedio</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Te invito que revises mi cuenta de Facebook <a href="https://www.facebook.com/pao.paobeia?mibextid=ZbWKwL" target="_blank">Facebook</a></p>
+    </footer>
+
+</body>
+</html>
+
+{% endblock %}

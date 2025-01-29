@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %}TipoVideojuego{% endblock %}
+{% block content %}
+    <h1>Agenda de Citas Médicas</h1>
+    <div class="form-container">
+        <form action="/agregar" method="post">
+            <div class="row g-3">
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="paciente" placeholder="Nombre del Paciente" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="doctor" placeholder="Doctor Asignado" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="fecha" placeholder="Fecha (DD/MM/AAAA)" required>
+                </div>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" name="hora" placeholder="Hora (HH:MM)" required>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <button type="submit" class="btn btn-primary">Agregar Cita</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Tabla de citas -->
+    <div class="table-container">
+        <table class="table table-bordered">
+            <thead class="table-light">
+                <tr>
+                    <th>#</th>
+                    <th>Paciente</th>
+                    <th>Doctor</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cita in citas %}
+                <tr>
+                    <td>{{ cita.id }}</td>
+                    <td>{{ cita.paciente }}</td>
+                    <td>{{ cita.doctor }}</td>
+                    <td>{{ cita.fecha }}</td>
+                    <td>{{ cita.hora }}</td>
+                    <td>{{ cita.estado }}</td>
+                    <td>
+                        <form action="/estado/{{ cita.id }}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-status">{{ 'Pendiente' if cita.estado == 'Pendiente' else 'Completada' }}</button>
+                        </form>
+                        <form action="/eliminar/{{ cita.id }}" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-delete">Eliminar</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}

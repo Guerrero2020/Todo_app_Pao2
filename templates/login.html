@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block title %}🩺 Iniciar Sesión - MediCitas{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background: linear-gradient(to bottom, #e3f2fd, #bbdefb);
+        color: #0d47a1;
+        font-family: 'Arial', sans-serif;
+        text-align: center;
+    }
+
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+    }
+
+    .login-card {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        width: 350px;
+        text-align: center;
+    }
+
+    .login-card h2 {
+        color: #0277bd;
+        margin-bottom: 20px;
+    }
+
+    .login-form input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #0288d1;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+
+    .btn-login {
+        background: #0288d1;
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 1.1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 15px;
+        transition: 0.3s;
+    }
+
+    .btn-login:hover {
+        background: #01579b;
+    }
+
+    .register-link {
+        margin-top: 15px;
+        font-size: 0.9rem;
+    }
+
+    .register-link a {
+        color: #0288d1;
+        text-decoration: none;
+    }
+
+    .register-link a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="login-container">
+    <div class="login-card">
+        <h2>🩺 MediCitas</h2>
+        <p>Accede a tu cuenta para gestionar tus citas médicas 📅</p>
+
+        <form class="login-form" action="{{ url_for('login') }}" method="POST">
+            <input type="username" name="username" placeholder="📧 Nombre" required>
+            <input type="password" name="password" placeholder="🔑 Contraseña" required>
+            <button type="submit" class="btn-login">Iniciar Sesión</button>
+        </form>
+
+        <p class="agregar-link">¿No tienes cuenta? <a href="{{ url_for('agregar') }}">Regístrate aquí</a></p>
+    </div>
+</div>
+
+{% endblock %}
